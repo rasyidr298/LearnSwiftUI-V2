@@ -25,16 +25,44 @@ struct LoginView: View {
 }
 
 struct Logo : View {
+    
+    @State var isTapLogo :Bool = false
+    
     var body: some View{
         VStack{
-            Image("ic_swift")
-                .resizable()
-                .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                .padding()
-            .background(Color.blue)
-                .cornerRadius(20)
+            if !isTapLogo {
+                Image("ic_swift")
+                    .resizable()
+                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                    .onTapGesture {
+                        if(!isTapLogo){
+                            self.isTapLogo = true
+                            print(self.isTapLogo)
+                        }else{
+                            self.isTapLogo = false
+                            print(self.isTapLogo)
+                        }
+                    }
+            }else{
+                Image("ic_swift")
+                    .resizable()
+                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
+                    .padding()
+                    .background(Color.red)
+                    .cornerRadius(20)
+                    .onTapGesture {
+                        if(!isTapLogo){
+                            self.isTapLogo = true
+                            print(self.isTapLogo)
+                        }else{
+                            self.isTapLogo = false
+                            print(self.isTapLogo)
+                        }
+                    }
+            }
             
             Text("Hello SwiftUI")
                 .foregroundColor(Color.orange)
@@ -62,12 +90,12 @@ struct LoginForm : View{
     var body: some View{
         VStack(alignment:.leading){
             
-//            tf username
+            //            tf username
             Text("username").font(.callout).bold()
             TextField("username..", text: $username)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             
-//            tf password
+            //            tf password
             Text("password").font(.callout).bold()
             SecureField("password", text: $password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -76,8 +104,8 @@ struct LoginForm : View{
             if(globalObject.isCorrect == false){
                 Text("Password Salah").foregroundColor(Color.red)
             }
-//
-//            btn
+            //
+            //            btn
             Button(action: {print("login click\(self.login())")}, label: {
                 HStack{
                     Text("Sign In")
@@ -90,8 +118,8 @@ struct LoginForm : View{
             .foregroundColor(Color.white)
         }
         .padding(.all, 30)
-            .background(Color.orange)
-            .cornerRadius(10)
+        .background(Color.orange)
+        .cornerRadius(10)
     }
 }
 
