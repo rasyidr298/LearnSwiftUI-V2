@@ -16,6 +16,16 @@ struct CovidView: View {
                 data in
                 ContentCovid(jumlahPositif: data.jumlah_positif, jumlahMeninggal: data.jumlah_meninggal, jumlahSembuh: data.jumlah_sembuh, jumlahDirawat: data.jumlah_dirawat)
             }
+            
+            if(apiServices.isLoading){
+                VStack{
+                    Indicator()
+                    Text("Loading..")
+                }.padding()
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(color: Color.secondary, radius: 20)
+            }
         }
     }
 }
@@ -65,6 +75,19 @@ struct ContentCovid : View {
             }
             
         }
+    }
+}
+
+//komponen indicator
+struct Indicator : UIViewRepresentable {
+    func makeUIView(context: UIViewRepresentableContext<Indicator>) -> UIActivityIndicatorView {
+        let indi = UIActivityIndicatorView(style: .large)
+        indi.color = UIColor.red
+        return indi
+    }
+    
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<Indicator>) {
+        uiView.startAnimating()
     }
 }
 

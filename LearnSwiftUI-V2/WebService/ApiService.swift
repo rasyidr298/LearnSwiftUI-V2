@@ -12,6 +12,7 @@ import Combine
 class ApiServices: ObservableObject {
     let objectWillChange = ObservableObjectPublisher()
     
+    @Published var isLoading = true
     @Published var totalCovid = [Total]() {
         willSet {
             objectWillChange.send()
@@ -32,6 +33,8 @@ class ApiServices: ObservableObject {
             let result = try? JSONDecoder().decode(CovidResponse.self, from: data)
             
             if let result = result {
+                self.isLoading = false
+                
                 DispatchQueue.main.async {
                     self.totalCovid = [result.update.total]
                     
