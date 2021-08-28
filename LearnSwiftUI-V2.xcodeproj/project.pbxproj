@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91526D9ED8900A1B928 /* LotteryView.swift */; };
+		847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */; };
 		84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */; };
 		84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */; };
 		84A6EE9E26D91EE200EE8A3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6EE9D26D91EE200EE8A3F /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		847CB91526D9ED8900A1B928 /* LotteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryView.swift; sourceTree = "<group>"; };
+		847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeView.swift; sourceTree = "<group>"; };
 		84A6EE9426D91EDF00EE8A3F /* LearnSwiftUI-V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LearnSwiftUI-V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				84A6EEAE26D91F9700EE8A3F /* LoginView.swift */,
 				84A6EEB226D9384400EE8A3F /* GalleryView.swift */,
 				847CB91526D9ED8900A1B928 /* LotteryView.swift */,
+				847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				84A6EEB126D91FB000EE8A3F /* GLobalObject.swift in Sources */,
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
+				847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */,
 				847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */,
 				84A6EEB326D9384400EE8A3F /* GalleryView.swift in Sources */,
 			);
