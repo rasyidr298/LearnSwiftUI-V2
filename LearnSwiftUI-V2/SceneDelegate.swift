@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let loginView = LoginView()
 //        let galleryView = GalleryView()
 //        let lotteryView = LotteryView()
-        let drawShapeView = DrawShapeView()
+//        let drawShapeView = DrawShapeView()
+        let covidView = CovidView()
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -31,7 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window.rootViewController = UIHostingController(rootView: loginView.environmentObject(globalObject))
 //            window.rootViewController = UIHostingController(rootView: galleryView)
 //            window.rootViewController = UIHostingController(rootView: lotteryView)
-            window.rootViewController = UIHostingController(rootView: drawShapeView)
+//            window.rootViewController = UIHostingController(rootView: drawShapeView)
+            window.rootViewController = UIHostingController(rootView: covidView)
             self.window = window
             window.makeKeyAndVisible()
         }

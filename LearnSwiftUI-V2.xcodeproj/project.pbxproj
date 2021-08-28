@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91526D9ED8900A1B928 /* LotteryView.swift */; };
 		847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */; };
+		847CB91B26DA116C00A1B928 /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91A26DA116C00A1B928 /* Covid.swift */; };
+		847CB91D26DA12DD00A1B928 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91C26DA12DD00A1B928 /* ApiService.swift */; };
+		847CB91F26DA168A00A1B928 /* CovidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91E26DA168A00A1B928 /* CovidView.swift */; };
 		84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */; };
 		84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */; };
 		84A6EE9E26D91EE200EE8A3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A6EE9D26D91EE200EE8A3F /* Assets.xcassets */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		847CB91526D9ED8900A1B928 /* LotteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryView.swift; sourceTree = "<group>"; };
 		847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeView.swift; sourceTree = "<group>"; };
+		847CB91A26DA116C00A1B928 /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
+		847CB91C26DA12DD00A1B928 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		847CB91E26DA168A00A1B928 /* CovidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidView.swift; sourceTree = "<group>"; };
 		84A6EE9426D91EDF00EE8A3F /* LearnSwiftUI-V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LearnSwiftUI-V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847CB91926DA042F00A1B928 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				847CB91C26DA12DD00A1B928 /* ApiService.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
 		84A6EE8B26D91EDF00EE8A3F = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +78,7 @@
 		84A6EE9626D91EDF00EE8A3F /* LearnSwiftUI-V2 */ = {
 			isa = PBXGroup;
 			children = (
+				847CB91926DA042F00A1B928 /* WebService */,
 				84A6EEAD26D91F8100EE8A3F /* Model */,
 				84A6EEAC26D91F7600EE8A3F /* Constant */,
 				84A6EEAB26D91F7100EE8A3F /* View */,
@@ -92,6 +107,7 @@
 				84A6EEB226D9384400EE8A3F /* GalleryView.swift */,
 				847CB91526D9ED8900A1B928 /* LotteryView.swift */,
 				847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */,
+				847CB91E26DA168A00A1B928 /* CovidView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 		84A6EEAD26D91F8100EE8A3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				847CB91A26DA116C00A1B928 /* Covid.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,9 +201,12 @@
 				84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */,
 				84A6EEB126D91FB000EE8A3F /* GLobalObject.swift in Sources */,
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
+				847CB91B26DA116C00A1B928 /* Covid.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
+				847CB91D26DA12DD00A1B928 /* ApiService.swift in Sources */,
 				847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */,
 				847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */,
+				847CB91F26DA168A00A1B928 /* CovidView.swift in Sources */,
 				84A6EEB326D9384400EE8A3F /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
