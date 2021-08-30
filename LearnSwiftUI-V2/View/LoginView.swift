@@ -9,15 +9,15 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var globalObject : GlobalObject
+    @EnvironmentObject var authUserService : AuthUserService
     
     var body: some View {
         VStack(spacing: 30){
-            if self.globalObject.isLogin {
+            if self.authUserService.isLogin {
                 Home()
             }else{
                 Logo()
-                LoginForm()
+                LoginForm().animation(.easeIn)
             }
         }
         .padding(.all, 20)
@@ -35,15 +35,15 @@ struct Logo : View {
                     .resizable()
                     .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.black)
                     .cornerRadius(20)
                     .onTapGesture {
                         if(!isTapLogo){
                             self.isTapLogo = true
-                            print(self.isTapLogo)
+                            print("logo click \(self.isTapLogo)")
                         }else{
                             self.isTapLogo = false
-                            print(self.isTapLogo)
+                            print("logo click \(self.isTapLogo)")
                         }
                     }
             }else{
@@ -56,16 +56,16 @@ struct Logo : View {
                     .onTapGesture {
                         if(!isTapLogo){
                             self.isTapLogo = true
-                            print(self.isTapLogo)
+                            print("logo click \(self.isTapLogo)")
                         }else{
                             self.isTapLogo = false
-                            print(self.isTapLogo)
+                            print("logo click \(self.isTapLogo)")
                         }
                     }
             }
             
             Text("Hello SwiftUI")
-                .foregroundColor(Color.orange)
+                .foregroundColor(Color.black)
         }
         
     }
@@ -73,71 +73,101 @@ struct Logo : View {
 
 struct LoginForm : View{
     
-    @EnvironmentObject var globalObject : GlobalObject
+    @EnvironmentObject var authUserService : AuthUserService
     
-    @State var username: String = ""
-    @State var password: String = ""
-    
-    func login(){
-        if (username == "Admin" && password == "12345") {
-            globalObject.isLogin = true
-        }else{
-            globalObject.isLogin = false
-            globalObject.isCorrect = false
-        }
-    }
+    @State var login: String = "0706205724"
+    @State var password: String = "123456"
+    @State var isEmptyField: Bool = false
     
     var body: some View{
-        VStack(alignment:.leading){
-            
-            //            tf username
-            Text("username").font(.callout).bold()
-            TextField("username..", text: $username)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            //            tf password
-            Text("password").font(.callout).bold()
-            SecureField("password", text: $password)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            //error message
-            if(globalObject.isCorrect == false){
-                Text("Password Salah").foregroundColor(Color.red)
-            }
-            //
-            //            btn
-            Button(action: {print("login click\(self.login())")}, label: {
-                HStack{
-                    Text("Sign In")
-                    Spacer()
+        ZStack{
+            VStack(alignment: .leading, spacing: 20){
+                
+                //tf username
+                Text("username").font(.callout).bold()
+                    .foregroundColor(Color.white)
+                TextField("username..", text: $login)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .keyboardType(.numberPad)
+                
+                //tf password
+                Text("password").font(.callout).bold()
+                    .foregroundColor(Color.white)
+                TextField("password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                
+                //btn
+                Button(action: {
+                    print("login click")
+                    if(self.login.isEmpty || self.password.isEmpty){
+                        self.isEmptyField = true
+                    }else{
+                        authUserService.login(login: self.login, password: self.password)
+                    }
+                }, label: {
+                    HStack{
+                        Spacer()
+                        Text("Sign In")
+                        Spacer()
+                    }
+                })
+                .padding()
+                .background(Color.black)
+                .cornerRadius(10)
+                .foregroundColor(Color.white)
+                .shadow(color: .gray, radius: 5)
+                
+                //wrong field message
+                if(authUserService.isCorrect == false){
+                    Text("Password Salah!").foregroundColor(Color.white)
                 }
-            })
-            .padding()
-            .background(Color.black)
+                
+                //wrong empty field
+                if(isEmptyField){
+                    Text("Form Harus Diisi!").foregroundColor(Color.white)
+                }
+                
+                //is not reachable
+                if(authUserService.isReacheable == false){
+                    Text("Server bermaslah!").foregroundColor(Color.white)
+                }
+            }
+            .padding(.all, 30)
+            .background(Color("orange"))
             .cornerRadius(10)
-            .foregroundColor(Color.white)
+            .shadow(color: .gray, radius: 5)
+            
+            if(authUserService.isLoading){
+                VStack{
+                    Indicator()
+                    Text("Loading..")
+                }.padding()
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(color: Color.secondary, radius: 20)
+            }
         }
-        .padding(.all, 30)
-        .background(Color.orange)
-        .cornerRadius(10)
     }
 }
 
 struct Home : View {
-    @EnvironmentObject var globalObject : GlobalObject
+    @EnvironmentObject var authUserService : AuthUserService
     
     var body: some View{
         VStack{
             Text("Halaman Home")
-            Button(action: {self.globalObject.isLogin = false}, label: {
+            Button(action: {self.authUserService.isLogin = false}, label: {
                 Text("Logout")
             })
+            Text(self.authUserService.token)
         }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(GlobalObject())
+        LoginView().environmentObject(AuthUserService())
     }
 }
