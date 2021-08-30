@@ -23,6 +23,9 @@
 		84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EEAE26D91F9700EE8A3F /* LoginView.swift */; };
 		84A6EEB126D91FB000EE8A3F /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EEB026D91FB000EE8A3F /* AuthUserService.swift */; };
 		84A6EEB326D9384400EE8A3F /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6EEB226D9384400EE8A3F /* GalleryView.swift */; };
+		84C2679426DCCEE20067B1D1 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679326DCCEE20067B1D1 /* NoteView.swift */; };
+		84C2679626DCCEEF0067B1D1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679526DCCEEF0067B1D1 /* Note.swift */; };
+		84C2679926DCD26C0067B1D1 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679826DCD26C0067B1D1 /* NoteViewModel.swift */; };
 		FF9606869F565A83EB636054 /* Pods_LearnSwiftUI_V2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CEF3CCDE40E9C03EE245B8 /* Pods_LearnSwiftUI_V2.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		84A6EEAE26D91F9700EE8A3F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		84A6EEB026D91FB000EE8A3F /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
 		84A6EEB226D9384400EE8A3F /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		84C2679326DCCEE20067B1D1 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		84C2679526DCCEEF0067B1D1 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		84C2679826DCD26C0067B1D1 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		C636983DCB14C1608707AB6C /* Pods-LearnSwiftUI-V2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnSwiftUI-V2.debug.xcconfig"; path = "Target Support Files/Pods-LearnSwiftUI-V2/Pods-LearnSwiftUI-V2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +109,7 @@
 		84A6EE9626D91EDF00EE8A3F /* LearnSwiftUI-V2 */ = {
 			isa = PBXGroup;
 			children = (
+				84C2679726DCD25F0067B1D1 /* ViewModel */,
 				847CB91926DA042F00A1B928 /* WebService */,
 				84A6EEAD26D91F8100EE8A3F /* Model */,
 				84A6EEAC26D91F7600EE8A3F /* Constant */,
@@ -134,6 +141,7 @@
 				847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */,
 				847CB91E26DA168A00A1B928 /* CovidView.swift */,
 				840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */,
+				84C2679326DCCEE20067B1D1 /* NoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,8 +159,17 @@
 			children = (
 				847CB91A26DA116C00A1B928 /* Covid.swift */,
 				848645E926DB628D009A5B09 /* AuthUser.swift */,
+				84C2679526DCCEEF0067B1D1 /* Note.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84C2679726DCD25F0067B1D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84C2679826DCD26C0067B1D1 /* NoteViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C9AF4617E76EB69DA7F2BFBA /* Frameworks */ = {
@@ -284,6 +301,8 @@
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
 				847CB91B26DA116C00A1B928 /* Covid.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
+				84C2679626DCCEEF0067B1D1 /* Note.swift in Sources */,
+				84C2679926DCD26C0067B1D1 /* NoteViewModel.swift in Sources */,
 				840E8C5C26DCAEA700888ACF /* NetworkCheckView.swift in Sources */,
 				848645EA26DB628D009A5B09 /* AuthUser.swift in Sources */,
 				840E8C5A26DCAE2C00888ACF /* Utilities.swift in Sources */,
@@ -291,6 +310,7 @@
 				847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */,
 				847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */,
 				847CB91F26DA168A00A1B928 /* CovidView.swift in Sources */,
+				84C2679426DCCEE20067B1D1 /* NoteView.swift in Sources */,
 				84A6EEB326D9384400EE8A3F /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
