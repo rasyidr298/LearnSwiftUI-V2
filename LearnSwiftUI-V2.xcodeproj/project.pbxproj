@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840E8C5A26DCAE2C00888ACF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E8C5926DCAE2C00888ACF /* Utilities.swift */; };
+		840E8C5C26DCAEA700888ACF /* NetworkCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */; };
 		847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91526D9ED8900A1B928 /* LotteryView.swift */; };
 		847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */; };
 		847CB91B26DA116C00A1B928 /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91A26DA116C00A1B928 /* Covid.swift */; };
@@ -29,6 +31,8 @@
 		51CEF3CCDE40E9C03EE245B8 /* Pods_LearnSwiftUI_V2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnSwiftUI_V2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8406A2B226DBC236000CC400 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8406A2B626DBD733000CC400 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E8C5926DCAE2C00888ACF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheckView.swift; sourceTree = "<group>"; };
 		847CB91526D9ED8900A1B928 /* LotteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryView.swift; sourceTree = "<group>"; };
 		847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeView.swift; sourceTree = "<group>"; };
 		847CB91A26DA116C00A1B928 /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				847CB91526D9ED8900A1B928 /* LotteryView.swift */,
 				847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */,
 				847CB91E26DA168A00A1B928 /* CovidView.swift */,
+				840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 		84A6EEAC26D91F7600EE8A3F /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				840E8C5926DCAE2C00888ACF /* Utilities.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -278,7 +284,9 @@
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
 				847CB91B26DA116C00A1B928 /* Covid.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
+				840E8C5C26DCAEA700888ACF /* NetworkCheckView.swift in Sources */,
 				848645EA26DB628D009A5B09 /* AuthUser.swift in Sources */,
+				840E8C5A26DCAE2C00888ACF /* Utilities.swift in Sources */,
 				847CB91D26DA12DD00A1B928 /* ApiService.swift in Sources */,
 				847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */,
 				847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */,
