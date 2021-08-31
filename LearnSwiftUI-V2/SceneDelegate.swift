@@ -21,9 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
         //        let authUserService = AuthUserService()
         //        let utilities = Utilities()
-        let noteViewModel = NoteViewModel()
+//        let noteViewModel = NoteViewModel()
         
-        let noteView = NoteView()
+        let newsView = NewsView()
+//        let noteView = NoteView()
         //        let networkCheckView = NetworkCheckView()
         //        let loginView = LoginView()
         //        let galleryView = GalleryView()
@@ -34,7 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: noteView.environmentObject(noteViewModel))
+            window.rootViewController = UIHostingController(rootView: newsView)
+//            window.rootViewController = UIHostingController(rootView: noteView.environmentObject(noteViewModel))
             //            window.rootViewController = UIHostingController(rootView: networkCheckView.environmentObject(utilities))
             //            window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authUserService))
             //            window.rootViewController = UIHostingController(rootView: galleryView)
