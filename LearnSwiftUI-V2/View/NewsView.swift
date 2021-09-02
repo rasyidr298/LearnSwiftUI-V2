@@ -12,25 +12,46 @@ struct NewsView: View {
     @ObservedObject var newsViewModel = NewsViewModel()
     
     var body: some View {
-        List(newsViewModel.news){data in
+        if newsViewModel.isLoading {
             VStack{
-                Text("\(data.title)").bold().font(.title)
-                Text("\(data.description)").font(.body)
-                WebImage(url: URL(string: data.urlToImage))
-                    .resizable()
-                    .placeholder(Image(systemName: "ic_swift"))
-                    .placeholder {
-                        Rectangle().foregroundColor(.gray)
+                Indicator()
+                Text("Loading..")
+            }.padding()
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color: Color.secondary, radius: 20)
+        }else{
+            if newsViewModel.isReacheable {
+                List(newsViewModel.news){data in
+                    VStack{
+                        Text("\(data.title)").bold().font(.title)
+                        Text("\(data.description)").font(.body)
+                        WebImage(url: URL(string: data.urlToImage))
+                            .resizable()
+                            .placeholder(Image(systemName: "ic_swift"))
+                            .placeholder {
+                                Rectangle().foregroundColor(.gray)
+                            }
+                            .indicator(.activity)
+                            .transition(.fade(duration: 0.5))
+                            .scaledToFit()
+                            .frame(width: 300, height: 300, alignment: .center)
                     }
-                    .indicator(.activity)
-                    .transition(.fade(duration: 0.5))
-                    .scaledToFit()
-                    .frame(width: 300, height: 300, alignment: .center)
+                }
+            }else{
+                VStack{
+                    Indicator()
+                    Text("Server Error..")
+                }.padding()
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(color: Color.secondary, radius: 20)
             }
         }
         
     }
 }
+
 
 
 struct NewsView_Previews: PreviewProvider {
