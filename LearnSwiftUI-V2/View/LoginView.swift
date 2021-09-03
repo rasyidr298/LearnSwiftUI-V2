@@ -10,15 +10,16 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var keyChainViewModel : KeychainViewModel
     
     var body: some View {
         if authViewModel.isLoading{
             LoadingAnim(message: "loading..")
         }else{
-            if (self.authViewModel.isLogin) {
-                Home()
-            }else{
+            if (self.keyChainViewModel.isTokenBlank) {
                 LoginForm().animation(.easeIn)
+            }else{
+                Home()
             }
         }
     }
@@ -26,6 +27,7 @@ struct LoginView: View {
 
 struct LoginForm : View{
     @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var keyChainViewModel : KeychainViewModel
     
     @State var isTapLogo :Bool = false
     @State var login: String = "0706205724"
@@ -174,31 +176,32 @@ struct LoginForm : View{
                 Spacer()
             }
             
-            
         }
     }
 }
 
 struct Home : View {
     @EnvironmentObject var authViewModel : AuthViewModel
+    @EnvironmentObject var keyChainViewModel : KeychainViewModel
     
     var body: some View{
         VStack{
             Text("Halaman Home")
             Button(action: {
                 self.authViewModel.isLogin = false
+                self.keyChainViewModel.updateStoredToken("")
                 
             }, label: {
                 Text("Logout")
             })
-            Text(self.authViewModel.token)
+            Text(self.keyChainViewModel.getStoredToken())
         }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(AuthViewModel())
+        LoginView().environmentObject(AuthViewModel()).environmentObject(KeychainViewModel())
     }
 }
 

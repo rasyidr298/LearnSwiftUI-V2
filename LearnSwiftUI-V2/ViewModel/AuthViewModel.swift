@@ -12,9 +12,9 @@ import SwiftUI
 
 class AuthViewModel : ObservableObject{
     
+    var keyChainViewModel = KeychainViewModel()
     @Published var alertLogin: AlertLogin?
     @Published var isLoading : Bool = false
-    @Published var token : String = ""
     
     var didChange = PassthroughSubject<AuthViewModel, Never>()
     @Published var isLogin : Bool = false{
@@ -34,10 +34,10 @@ class AuthViewModel : ObservableObject{
                 self.isLoading = false
                 switch result{
                 case .success(let response):
-                    print("authLogin suces :\(response)")
+                    print("authLogin succes :\(response)")
                     DispatchQueue.main.async {
                         self.isLogin = true
-                        self.token = response.data.access_token
+                        self.keyChainViewModel.updateStoredToken(response.data.access_token) 
                     }
                     
                 case.failure(let error):
