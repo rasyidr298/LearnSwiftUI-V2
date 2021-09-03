@@ -9,13 +9,13 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var authUserService : AuthUserService
+    @EnvironmentObject var authViewModel : AuthViewModel
     
     var body: some View {
-        if authUserService.isLoading{
+        if authViewModel.isLoading{
             LoadingAnim(message: "loading..")
         }else{
-            if (self.authUserService.isLogin) {
+            if (self.authViewModel.isLogin) {
                 Home()
             }else{
                 LoginForm().animation(.easeIn)
@@ -25,14 +25,13 @@ struct LoginView: View {
 }
 
 struct LoginForm : View{
-    @EnvironmentObject var authUserService : AuthUserService
-    @EnvironmentObject var utilities : Utilities
+    @EnvironmentObject var authViewModel : AuthViewModel
     
     @State var isTapLogo :Bool = false
     @State var login: String = "0706205724"
     @State var password: String = "123456"
     
-    func isLogin(){authUserService.login(login: login, password: password);}
+    func isLogin(){authViewModel.authLogin(login: login, password: password);}
     
     func isOk(){}
     
@@ -124,26 +123,21 @@ struct LoginForm : View{
                     HStack{
                         Spacer()
                         Button(action: {
-                            
-                            if !utilities.isConnect{
-                                self.authUserService.alertLogin = .noInternet
-                            }else{
-                                if(self.login.isEmpty || self.password.isEmpty){
-                                    isLogin()
-                                }else {
-                                    self.authUserService.login(login: login, password: password)
-                                }
+                            if(self.login.isEmpty || self.password.isEmpty){
+                                isLogin()
+                            }else {
+                                self.isLogin()
                             }
                         })
                         {
                             Text("Sign In").bold().font(.callout).foregroundColor(.white)
                         }
-                        .alert(item: $authUserService.alertLogin) { type in
+                        .alert(item: $authViewModel.alertLogin) { type in
                             switch type {
                             case .noInternet:
-                                return alertwithTwoButton(title: "no internet", message: "no internet Connection bro..",actionTry: isLogin,actionOk: isOk)
+                                return alertWithOneButton(title: "no internet", message: "no internet Connection bro..")
                             case .errorServer:
-                                return alertwithTwoButton(title: "server error", message: "server error broo..", actionTry: isLogin, actionOk: isOk)
+                                return alertWithOneButton(title: "server error", message: "server error broo..")
                             case .emptyField:
                                 return alertWithOneButton(title: "empty field", message: "empty field broo..")
                             case .wrongPasword:
@@ -186,25 +180,25 @@ struct LoginForm : View{
 }
 
 struct Home : View {
-    @EnvironmentObject var authUserService : AuthUserService
+    @EnvironmentObject var authViewModel : AuthViewModel
     
     var body: some View{
         VStack{
             Text("Halaman Home")
             Button(action: {
-                self.authUserService.isLogin = false
+                self.authViewModel.isLogin = false
                 
             }, label: {
                 Text("Logout")
             })
-            Text(self.authUserService.token)
+            Text(self.authViewModel.token)
         }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(AuthUserService()).environmentObject(Utilities())
+        LoginView().environmentObject(AuthViewModel())
     }
 }
 

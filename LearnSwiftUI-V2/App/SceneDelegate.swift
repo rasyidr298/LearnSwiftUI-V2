@@ -19,9 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         // Create the SwiftUI view that provides the window contents.
-                let authUserService = AuthUserService()
-                let utilities = Utilities()
+//                let authUserService = AuthUserService()
+//                let nwMonitorService = NWMonitorService()
 //        let noteViewModel = NoteViewModel()
+        let authViewModel = AuthViewModel()
         
 //        let newsView = NewsView()
 //        let noteView = NoteView()
@@ -38,8 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window.rootViewController = UIHostingController(rootView: newsView)
 //            window.rootViewController = UIHostingController(rootView: noteView.environmentObject(noteViewModel))
             //            window.rootViewController = UIHostingController(rootView: networkCheckView.environmentObject(utilities))
-                        window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authUserService)
-                                                                            .environmentObject(utilities))
+            window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authViewModel))
+//                        window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authUserService).environmentObject(nwMonitorService))
             //            window.rootViewController = UIHostingController(rootView: galleryView)
             //            window.rootViewController = UIHostingController(rootView: lotteryView)
             //            window.rootViewController = UIHostingController(rootView: drawShapeView)
