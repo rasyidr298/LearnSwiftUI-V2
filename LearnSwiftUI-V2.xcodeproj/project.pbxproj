@@ -30,6 +30,12 @@
 		84F0AB4126E20C1D00EDF958 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4026E20C1D00EDF958 /* NetworkService.swift */; };
 		84F0AB4326E20C4200EDF958 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4226E20C4200EDF958 /* NetworkManager.swift */; };
 		84F0AB4526E22C4E00EDF958 /* KeychainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4426E22C4E00EDF958 /* KeychainViewModel.swift */; };
+		84F0AB4726E2615B00EDF958 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4626E2615B00EDF958 /* HomeView.swift */; };
+		84F0AB4926E2641900EDF958 /* YoutubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4826E2641900EDF958 /* YoutubeView.swift */; };
+		84F0AB4B26E2642800EDF958 /* InstagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4A26E2642800EDF958 /* InstagramView.swift */; };
+		84F0AB4D26E2680B00EDF958 /* InstagramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB4C26E2680B00EDF958 /* InstagramViewModel.swift */; };
+		84F0AB5126E26A4D00EDF958 /* Instagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB5026E26A4D00EDF958 /* Instagram.swift */; };
+		84F0AB5526E2706F00EDF958 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0AB5426E2706F00EDF958 /* SettingView.swift */; };
 		FF9606869F565A83EB636054 /* Pods_LearnSwiftUI_V2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CEF3CCDE40E9C03EE245B8 /* Pods_LearnSwiftUI_V2.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +69,12 @@
 		84F0AB4026E20C1D00EDF958 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		84F0AB4226E20C4200EDF958 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		84F0AB4426E22C4E00EDF958 /* KeychainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainViewModel.swift; sourceTree = "<group>"; };
+		84F0AB4626E2615B00EDF958 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		84F0AB4826E2641900EDF958 /* YoutubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeView.swift; sourceTree = "<group>"; };
+		84F0AB4A26E2642800EDF958 /* InstagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramView.swift; sourceTree = "<group>"; };
+		84F0AB4C26E2680B00EDF958 /* InstagramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramViewModel.swift; sourceTree = "<group>"; };
+		84F0AB5026E26A4D00EDF958 /* Instagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instagram.swift; sourceTree = "<group>"; };
+		84F0AB5426E2706F00EDF958 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		C636983DCB14C1608707AB6C /* Pods-LearnSwiftUI-V2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnSwiftUI-V2.debug.xcconfig"; path = "Target Support Files/Pods-LearnSwiftUI-V2/Pods-LearnSwiftUI-V2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +178,10 @@
 				84C2679326DCCEE20067B1D1 /* NoteView.swift */,
 				84C2679A26DDC63A0067B1D1 /* NewsView.swift */,
 				845C9A9126E07527000E9277 /* CustomView.swift */,
+				84F0AB4626E2615B00EDF958 /* HomeView.swift */,
+				84F0AB4826E2641900EDF958 /* YoutubeView.swift */,
+				84F0AB4A26E2642800EDF958 /* InstagramView.swift */,
+				84F0AB5426E2706F00EDF958 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +189,7 @@
 		84A6EEAD26D91F8100EE8A3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84F0AB5026E26A4D00EDF958 /* Instagram.swift */,
 				84C2679526DCCEEF0067B1D1 /* Note.swift */,
 				848645E926DB628D009A5B09 /* AuthUser.swift */,
 				84C2679C26DDC64B0067B1D1 /* News.swift */,
@@ -186,6 +203,7 @@
 				84C2679826DCD26C0067B1D1 /* NoteViewModel.swift */,
 				84F0AB3E26E1FEF500EDF958 /* AuthViewModel.swift */,
 				84F0AB4426E22C4E00EDF958 /* KeychainViewModel.swift */,
+				84F0AB4C26E2680B00EDF958 /* InstagramViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,7 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F0AB4926E2641900EDF958 /* YoutubeView.swift in Sources */,
 				84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */,
+				84F0AB5126E26A4D00EDF958 /* Instagram.swift in Sources */,
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
 				84F0AB4326E20C4200EDF958 /* NetworkManager.swift in Sources */,
 				845C9A9226E07527000E9277 /* CustomView.swift in Sources */,
@@ -424,12 +444,16 @@
 				84C2679926DCD26C0067B1D1 /* NoteViewModel.swift in Sources */,
 				84C2679F26DDC77B0067B1D1 /* NewsViewModel.swift in Sources */,
 				84F0AB4126E20C1D00EDF958 /* NetworkService.swift in Sources */,
+				84F0AB4D26E2680B00EDF958 /* InstagramViewModel.swift in Sources */,
 				848645EA26DB628D009A5B09 /* AuthUser.swift in Sources */,
 				847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */,
 				84C2679D26DDC64B0067B1D1 /* News.swift in Sources */,
+				84F0AB4726E2615B00EDF958 /* HomeView.swift in Sources */,
 				84C2679B26DDC63A0067B1D1 /* NewsView.swift in Sources */,
 				847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */,
+				84F0AB5526E2706F00EDF958 /* SettingView.swift in Sources */,
 				84F0AB3D26E1F6ED00EDF958 /* KeychainServices.swift in Sources */,
+				84F0AB4B26E2642800EDF958 /* InstagramView.swift in Sources */,
 				84C2679426DCCEE20067B1D1 /* NoteView.swift in Sources */,
 				84A6EEB326D9384400EE8A3F /* GalleryView.swift in Sources */,
 			);

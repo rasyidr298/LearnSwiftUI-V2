@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct NewsView: View {
-    @ObservedObject var newsViewModel = NewsViewModel()
+    @EnvironmentObject var newsViewModel : NewsViewModel
     
     var body: some View {
         if newsViewModel.isLoading {
@@ -52,10 +52,8 @@ struct NewsView: View {
     }
 }
 
-
-
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView()
+        NewsView().environmentObject(NewsViewModel())
     }
 }

@@ -8,24 +8,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    @EnvironmentObject var authViewModel : AuthViewModel
-    @EnvironmentObject var keyChainViewModel : KeychainViewModel
-    
-    var body: some View {
-        if authViewModel.isLoading{
-            LoadingAnim(message: "loading..")
-        }else{
-            if (self.keyChainViewModel.isTokenBlank) {
-                LoginForm().animation(.easeIn)
-            }else{
-                Home()
-            }
-        }
-    }
-}
-
-struct LoginForm : View{
     @EnvironmentObject var authViewModel : AuthViewModel
     @EnvironmentObject var keyChainViewModel : KeychainViewModel
     
@@ -35,15 +17,13 @@ struct LoginForm : View{
     
     func isLogin(){authViewModel.authLogin(login: login, password: password);}
     
-    func isOk(){}
-    
     var body: some View {
         //Background View
         ZStack{
             Color.white
                 .edgesIgnoringSafeArea(.all)
             
-            //1. Purple Welcome
+            //1.  Welcome
             VStack{
                 if !isTapLogo {
                     HStack{
@@ -57,7 +37,7 @@ struct LoginForm : View{
                     }
                     .frame(height: 180)
                     .padding(30)
-                    .background(Color.purple)
+                    .background(Color("orange"))
                     .clipShape(CustomShape(corner: .bottomRight, radii: 50))
                     .edgesIgnoringSafeArea(.top)
                     .onTapGesture {
@@ -81,7 +61,7 @@ struct LoginForm : View{
                     }
                     .frame(height: 180)
                     .padding(30)
-                    .background(Color.pink)
+                    .background(Color.purple)
                     .clipShape(CustomShape(corner: .bottomRight, radii: 50))
                     .edgesIgnoringSafeArea(.top)
                     .onTapGesture {
@@ -149,14 +129,14 @@ struct LoginForm : View{
                         Spacer()
                     }
                     .padding()
-                    .background(Color.purple)
+                    .background(Color("orange"))
                     .cornerRadius(15)
                     
                     //Privacy Policy
                     HStack{
                         Spacer()
                         Button(action: {}){
-                            Text("Our Privacy Policy").bold().font(.callout).foregroundColor(.purple)
+                            Text("Our Privacy Policy").bold().font(.callout).foregroundColor(Color("orange"))
                         }
                         Spacer()
                     }
@@ -167,7 +147,7 @@ struct LoginForm : View{
                         Text("Don't have an account?").bold().font(.callout).foregroundColor(.black)
                         Spacer()
                         Button(action: {}){
-                            Text("Sign Up?").bold().font(.callout).foregroundColor(.purple)
+                            Text("Sign Up?").bold().font(.callout).foregroundColor(Color("orange"))
                         }
                     }
                     .padding()
@@ -176,25 +156,6 @@ struct LoginForm : View{
                 Spacer()
             }
             
-        }
-    }
-}
-
-struct Home : View {
-    @EnvironmentObject var authViewModel : AuthViewModel
-    @EnvironmentObject var keyChainViewModel : KeychainViewModel
-    
-    var body: some View{
-        VStack{
-            Text("Halaman Home")
-            Button(action: {
-                self.authViewModel.isLogin = false
-                self.keyChainViewModel.updateStoredToken("")
-                
-            }, label: {
-                Text("Logout")
-            })
-            Text(self.keyChainViewModel.getStoredToken())
         }
     }
 }

@@ -53,6 +53,25 @@ func alertWithOneButton(title : String, message : String) -> Alert{
     return Alert(title: Text(title), message: Text(message))
 }
 
+//custom NavBar
+func customNavBar(){
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.shadowImage = UIImage()
+    navBarAppearance.shadowColor = .clear
+    navBarAppearance.backgroundColor = UIColor.white
+    UINavigationBar.appearance().standardAppearance = navBarAppearance
+    UINavigationBar.appearance().compactAppearance = navBarAppearance
+    UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+}
+
+//custom TabView
+func customTabView(){
+    let tabBarAppeareance = UITabBarAppearance()
+//        tabBarAppeareance.shadowColor = .gray // For line separator of the tab bar
+    tabBarAppeareance.backgroundColor = .white // For background color
+    UITabBar.appearance().standardAppearance = tabBarAppeareance
+}
+
 //Custom Shape
 struct CustomShape : Shape {
     var corner : UIRectCorner

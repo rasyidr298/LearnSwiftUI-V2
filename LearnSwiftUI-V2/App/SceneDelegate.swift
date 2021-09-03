@@ -19,33 +19,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         // Create the SwiftUI view that provides the window contents.
-//                let authUserService = AuthUserService()
-//                let nwMonitorService = NWMonitorService()
-//        let noteViewModel = NoteViewModel()
         let authViewModel = AuthViewModel()
         let keychainViewModel = KeychainViewModel()
+        let noteViewModel = NoteViewModel()
+        let newsViewModel = NewsViewModel()
         
-//        let newsView = NewsView()
-//        let noteView = NoteView()
-        //        let networkCheckView = NetworkCheckView()
-                let loginView = LoginView()
-        //        let galleryView = GalleryView()
-        //        let lotteryView = LotteryView()
-        //        let drawShapeView = DrawShapeView()
-        //        let covidView = CovidView()
+        let contenView = ContentView()
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = UIHostingController(rootView: newsView)
-//            window.rootViewController = UIHostingController(rootView: noteView.environmentObject(noteViewModel))
-            //            window.rootViewController = UIHostingController(rootView: networkCheckView.environmentObject(utilities))
-            window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authViewModel).environmentObject(keychainViewModel))
-//                        window.rootViewController = UIHostingController(rootView: loginView.environmentObject(authUserService).environmentObject(nwMonitorService))
-            //            window.rootViewController = UIHostingController(rootView: galleryView)
-            //            window.rootViewController = UIHostingController(rootView: lotteryView)
-            //            window.rootViewController = UIHostingController(rootView: drawShapeView)
-            //            window.rootViewController = UIHostingController(rootView: covidView)
+            
+            window.rootViewController = UIHostingController(rootView: contenView
+                                                                .environmentObject(authViewModel)
+                                                                .environmentObject(keychainViewModel)
+                                                                .environmentObject(noteViewModel)
+                                                                .environmentObject(newsViewModel))
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NoteView: View {
+    @EnvironmentObject var noteViewModel : NoteViewModel
+    
     var body: some View {
         NavigationView{
             NoteHome()
@@ -31,7 +33,7 @@ struct NoteHome : View{
             List{
                 ForEach(Array(noteViewModel.notes.enumerated()),id:\.offset){
                     offset , note in
-                    NavigationLink(destination: DetailNote(note: note, index: offset)){
+                    NavigationLink(destination: DetailNoteView(note: note, index: offset)){
                         Text(note.title)
                     }
                 }
@@ -58,7 +60,7 @@ struct NoteHome : View{
     }
 }
 
-struct DetailNote : View {
+struct DetailNoteView : View {
     @EnvironmentObject var noteViewModel : NoteViewModel
     @State var newTitleValue : String = ""
     var note : Note
