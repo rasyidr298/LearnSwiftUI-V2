@@ -12,142 +12,175 @@ struct LoginView: View {
     @EnvironmentObject var authUserService : AuthUserService
     
     var body: some View {
-        VStack(spacing: 30){
-            if self.authUserService.isLogin {
+        if authUserService.isLoading{
+            LoadingAnim(message: "loading..")
+        }else{
+            if (self.authUserService.isLogin) {
                 Home()
             }else{
-                Logo()
                 LoginForm().animation(.easeIn)
             }
         }
-        .padding(.all, 20)
-    }
-}
-
-struct Logo : View {
-    
-    @State var isTapLogo :Bool = false
-    
-    var body: some View{
-        VStack{
-            if !isTapLogo {
-                Image("ic_swift")
-                    .resizable()
-                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(20)
-                    .onTapGesture {
-                        if(!isTapLogo){
-                            self.isTapLogo = true
-                            print("logo click \(self.isTapLogo)")
-                        }else{
-                            self.isTapLogo = false
-                            print("logo click \(self.isTapLogo)")
-                        }
-                    }
-            }else{
-                Image("ic_swift")
-                    .resizable()
-                    .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .center)
-                    .padding()
-                    .background(Color.red)
-                    .cornerRadius(20)
-                    .onTapGesture {
-                        if(!isTapLogo){
-                            self.isTapLogo = true
-                            print("logo click \(self.isTapLogo)")
-                        }else{
-                            self.isTapLogo = false
-                            print("logo click \(self.isTapLogo)")
-                        }
-                    }
-            }
-            
-            Text("Hello SwiftUI")
-                .foregroundColor(Color.black)
-        }
-        
     }
 }
 
 struct LoginForm : View{
-    
     @EnvironmentObject var authUserService : AuthUserService
+    @EnvironmentObject var utilities : Utilities
     
+    @State var isTapLogo :Bool = false
     @State var login: String = "0706205724"
     @State var password: String = "123456"
-    @State var isEmptyField: Bool = false
     
-    var body: some View{
+    func isLogin(){authUserService.login(login: login, password: password);}
+    
+    func isOk(){}
+    
+    var body: some View {
+        //Background View
         ZStack{
-            VStack(alignment: .leading, spacing: 20){
-                
-                //tf username
-                Text("username").font(.callout).bold()
-                    .foregroundColor(Color.white)
-                TextField("username..", text: $login)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .keyboardType(.numberPad)
-                
-                //tf password
-                Text("password").font(.callout).bold()
-                    .foregroundColor(Color.white)
-                TextField("password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                
-                //btn
-                Button(action: {
-                    print("login click")
-                    if(self.login.isEmpty || self.password.isEmpty){
-                        self.isEmptyField = true
-                    }else{
-                        authUserService.login(login: self.login, password: self.password)
+            Color.white
+                .edgesIgnoringSafeArea(.all)
+            
+            //1. Purple Welcome
+            VStack{
+                if !isTapLogo {
+                    HStack{
+                        HStack{
+                            VStack(alignment:.leading){
+                                Text("Hi!").bold().font(.largeTitle).foregroundColor(.white)
+                                Text("Welcome Back").font(.title).foregroundColor(.white)
+                            }
+                        }
+                        Spacer()
                     }
-                }, label: {
+                    .frame(height: 180)
+                    .padding(30)
+                    .background(Color.purple)
+                    .clipShape(CustomShape(corner: .bottomRight, radii: 50))
+                    .edgesIgnoringSafeArea(.top)
+                    .onTapGesture {
+                        if(!isTapLogo){
+                            self.isTapLogo = true
+                            print("logo click \(self.isTapLogo)")
+                        }else{
+                            self.isTapLogo = false
+                            print("logo click \(self.isTapLogo)")
+                        }
+                    }
+                }else{
+                    HStack{
+                        HStack{
+                            VStack(alignment:.leading){
+                                Text("Hi!").bold().font(.largeTitle).foregroundColor(.white)
+                                Text("Welcome Back").font(.title).foregroundColor(.white)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .frame(height: 180)
+                    .padding(30)
+                    .background(Color.pink)
+                    .clipShape(CustomShape(corner: .bottomRight, radii: 50))
+                    .edgesIgnoringSafeArea(.top)
+                    .onTapGesture {
+                        if(!isTapLogo){
+                            self.isTapLogo = true
+                            print("logo click \(self.isTapLogo)")
+                        }else{
+                            self.isTapLogo = false
+                            print("logo click \(self.isTapLogo)")
+                        }
+                    }
+                }
+                
+                //Form Field
+                VStack(alignment:.leading){
+                    //Username
+                    Text("Username/email Address")
+                    TextField("Username...", text: $login)
+                        .padding()
+                        .background(Color("lightGray"))
+                        .cornerRadius(5.0)
+                        .autocapitalization(.none)
+                    
+                    //Password
+                    Text("Password")
+                    SecureField("Password...", text: $password)
+                        .padding()
+                        .background(Color("lightGray"))
+                        .cornerRadius(5.0)
+                        .autocapitalization(.none)
+                    
+                    //Forgot Password
+                    HStack{
+                        Button(action:{}){
+                            Text("Forgot Password?")
+                        }
+                        Spacer()
+                    }.padding([.top,.bottom], 10)
+                    
+                    //Sign In Button
                     HStack{
                         Spacer()
-                        Text("Sign In")
+                        Button(action: {
+                            
+                            if !utilities.isConnect{
+                                self.authUserService.alertLogin = .noInternet
+                            }else{
+                                if(self.login.isEmpty || self.password.isEmpty){
+                                    isLogin()
+                                }else {
+                                    self.authUserService.login(login: login, password: password)
+                                }
+                            }
+                        })
+                        {
+                            Text("Sign In").bold().font(.callout).foregroundColor(.white)
+                        }
+                        .alert(item: $authUserService.alertLogin) { type in
+                            switch type {
+                            case .noInternet:
+                                return alertwithTwoButton(title: "no internet", message: "no internet Connection bro..",actionTry: isLogin,actionOk: isOk)
+                            case .errorServer:
+                                return alertwithTwoButton(title: "server error", message: "server error broo..", actionTry: isLogin, actionOk: isOk)
+                            case .emptyField:
+                                return alertWithOneButton(title: "empty field", message: "empty field broo..")
+                            case .wrongPasword:
+                                return alertWithOneButton(title: "wrong account", message: "wrong password or email broo..")
+                            }
+                        }
                         Spacer()
                     }
-                })
-                .padding()
-                .background(Color.black)
-                .cornerRadius(10)
-                .foregroundColor(Color.white)
-                .shadow(color: .gray, radius: 5)
+                    .padding()
+                    .background(Color.purple)
+                    .cornerRadius(15)
+                    
+                    //Privacy Policy
+                    HStack{
+                        Spacer()
+                        Button(action: {}){
+                            Text("Our Privacy Policy").bold().font(.callout).foregroundColor(.purple)
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    //Register Button
+                    HStack{
+                        Text("Don't have an account?").bold().font(.callout).foregroundColor(.black)
+                        Spacer()
+                        Button(action: {}){
+                            Text("Sign Up?").bold().font(.callout).foregroundColor(.purple)
+                        }
+                    }
+                    .padding()
+                }.padding(30)
                 
-                //wrong field message
-                if(authUserService.isCorrect == false){
-                    Text("Password Salah!").foregroundColor(Color.white)
-                }
-                
-                //wrong empty field
-                if(isEmptyField){
-                    Text("Form Harus Diisi!").foregroundColor(Color.white)
-                }
-                
-                //is not reachable
-                if(authUserService.isReacheable == false){
-                    Text("Server bermaslah!").foregroundColor(Color.white)
-                }
+                Spacer()
             }
-            .padding(.all, 30)
-            .background(Color("orange"))
-            .cornerRadius(10)
-            .shadow(color: .gray, radius: 5)
             
-            if(authUserService.isLoading){
-                VStack{
-                    Indicator()
-                    Text("Loading..")
-                }.padding()
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(color: Color.secondary, radius: 20)
-            }
+            
         }
     }
 }
@@ -158,7 +191,10 @@ struct Home : View {
     var body: some View{
         VStack{
             Text("Halaman Home")
-            Button(action: {self.authUserService.isLogin = false}, label: {
+            Button(action: {
+                self.authUserService.isLogin = false
+                
+            }, label: {
                 Text("Logout")
             })
             Text(self.authUserService.token)
@@ -168,6 +204,7 @@ struct Home : View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(AuthUserService())
+        LoginView().environmentObject(AuthUserService()).environmentObject(Utilities())
     }
 }
+

@@ -15,6 +15,8 @@ class AuthUserService: ObservableObject {
     //Login app
     var didChange = PassthroughSubject<AuthUserService, Never>()
     
+    @Published var alertLogin: AlertLogin?
+    
     @Published var isLogin : Bool = false{
         didSet{
             didChange.send(self)
@@ -22,8 +24,6 @@ class AuthUserService: ObservableObject {
     }
     
     @Published var isLoading : Bool = false
-    @Published var isCorrect : Bool = true
-    @Published var isReacheable : Bool = true
     @Published var token : String = ""
     
     func login(login : String, password : String){
@@ -47,13 +47,13 @@ class AuthUserService: ObservableObject {
                         self.isLogin = true
                     }else{
                         print("response other 200 : \(response as Any)")
-                        self.isCorrect = false
+                        self.alertLogin = .wrongPasword
                     }
                 }
                 
                 break
             case .failure(let error):
-                self.isReacheable = false
+                self.alertLogin = .errorServer
                 print("error : \(error)")
             }
             

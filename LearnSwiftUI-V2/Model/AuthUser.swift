@@ -21,3 +21,12 @@ struct AuthuserResponse : Codable {
     var data : Data
     var meta : Meta
 }
+
+enum AlertLogin: Identifiable {
+    case noInternet, errorServer,emptyField,wrongPasword
+    
+    var id: Int {
+        hashValue
+    }
+}
+

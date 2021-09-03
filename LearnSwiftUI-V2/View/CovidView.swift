@@ -78,19 +78,6 @@ struct ContentCovid : View {
     }
 }
 
-//komponen indicator
-struct Indicator : UIViewRepresentable {
-    func makeUIView(context: UIViewRepresentableContext<Indicator>) -> UIActivityIndicatorView {
-        let indi = UIActivityIndicatorView(style: .large)
-        indi.color = UIColor.red
-        return indi
-    }
-    
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<Indicator>) {
-        uiView.startAnimating()
-    }
-}
-
 struct CovidView_Previews: PreviewProvider {
     static var previews: some View {
         CovidView()

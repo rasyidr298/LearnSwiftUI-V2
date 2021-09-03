@@ -11,7 +11,7 @@ import Network
 class Utilities : ObservableObject{
     @Published var isConnect : Bool = true
     
-    func monitorNetwork(){
+    init(){
         let monitor : NWPathMonitor = NWPathMonitor()
         let queue = DispatchQueue(label: "Monitor")
         

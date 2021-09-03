@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		840E8C5A26DCAE2C00888ACF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E8C5926DCAE2C00888ACF /* Utilities.swift */; };
 		840E8C5C26DCAEA700888ACF /* NetworkCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */; };
+		845C9A9026E05900000E9277 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C9A8F26E05900000E9277 /* ContentView.swift */; };
+		845C9A9226E07527000E9277 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C9A9126E07527000E9277 /* CustomView.swift */; };
 		847CB91626D9ED8900A1B928 /* LotteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91526D9ED8900A1B928 /* LotteryView.swift */; };
 		847CB91826D9F7AA00A1B928 /* DrawShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */; };
 		847CB91B26DA116C00A1B928 /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CB91A26DA116C00A1B928 /* Covid.swift */; };
@@ -39,6 +41,8 @@
 		8406A2B626DBD733000CC400 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840E8C5926DCAE2C00888ACF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheckView.swift; sourceTree = "<group>"; };
+		845C9A8F26E05900000E9277 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		845C9A9126E07527000E9277 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		847CB91526D9ED8900A1B928 /* LotteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryView.swift; sourceTree = "<group>"; };
 		847CB91726D9F7AA00A1B928 /* DrawShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShapeView.swift; sourceTree = "<group>"; };
 		847CB91A26DA116C00A1B928 /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
@@ -85,6 +89,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		845C9A8D26E05639000E9277 /* SuportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84A6EEA526D91EE200EE8A3F /* Info.plist */,
+				84A6EEA226D91EE200EE8A3F /* LaunchScreen.storyboard */,
+				84A6EE9D26D91EE200EE8A3F /* Assets.xcassets */,
+			);
+			path = SuportingFiles;
+			sourceTree = "<group>";
+		};
+		845C9A8E26E05645000E9277 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */,
+				84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */,
+				845C9A8F26E05900000E9277 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		847CB91926DA042F00A1B928 /* WebService */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,16 +139,13 @@
 		84A6EE9626D91EDF00EE8A3F /* LearnSwiftUI-V2 */ = {
 			isa = PBXGroup;
 			children = (
+				845C9A8E26E05645000E9277 /* App */,
+				845C9A8D26E05639000E9277 /* SuportingFiles */,
 				84C2679726DCD25F0067B1D1 /* ViewModel */,
 				847CB91926DA042F00A1B928 /* WebService */,
 				84A6EEAD26D91F8100EE8A3F /* Model */,
 				84A6EEAC26D91F7600EE8A3F /* Constant */,
 				84A6EEAB26D91F7100EE8A3F /* View */,
-				84A6EE9726D91EDF00EE8A3F /* AppDelegate.swift */,
-				84A6EE9926D91EDF00EE8A3F /* SceneDelegate.swift */,
-				84A6EE9D26D91EE200EE8A3F /* Assets.xcassets */,
-				84A6EEA226D91EE200EE8A3F /* LaunchScreen.storyboard */,
-				84A6EEA526D91EE200EE8A3F /* Info.plist */,
 				84A6EE9F26D91EE200EE8A3F /* Preview Content */,
 			);
 			path = "LearnSwiftUI-V2";
@@ -149,6 +170,7 @@
 				840E8C5B26DCAEA700888ACF /* NetworkCheckView.swift */,
 				84C2679326DCCEE20067B1D1 /* NoteView.swift */,
 				84C2679A26DDC63A0067B1D1 /* NewsView.swift */,
+				845C9A9126E07527000E9277 /* CustomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,9 +330,11 @@
 				84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */,
 				84A6EEB126D91FB000EE8A3F /* AuthUserService.swift in Sources */,
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
+				845C9A9226E07527000E9277 /* CustomView.swift in Sources */,
 				847CB91B26DA116C00A1B928 /* Covid.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
 				84C2679626DCCEEF0067B1D1 /* Note.swift in Sources */,
+				845C9A9026E05900000E9277 /* ContentView.swift in Sources */,
 				84C2679926DCD26C0067B1D1 /* NoteViewModel.swift in Sources */,
 				840E8C5C26DCAEA700888ACF /* NetworkCheckView.swift in Sources */,
 				84C2679F26DDC77B0067B1D1 /* NewsViewModel.swift in Sources */,
@@ -467,7 +491,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LearnSwiftUI-V2/Preview Content\"";
 				DEVELOPMENT_TEAM = PH4M8U772M;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "LearnSwiftUI-V2/Info.plist";
+				INFOPLIST_FILE = "LearnSwiftUI-V2/SuportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +513,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LearnSwiftUI-V2/Preview Content\"";
 				DEVELOPMENT_TEAM = PH4M8U772M;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "LearnSwiftUI-V2/Info.plist";
+				INFOPLIST_FILE = "LearnSwiftUI-V2/SuportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
