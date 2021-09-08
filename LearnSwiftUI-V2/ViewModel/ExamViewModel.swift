@@ -14,7 +14,6 @@ class ExamViewModel: ObservableObject {
     var keyChainViewModel = KeychainViewModel()
     @Published var isLoading : Bool = false
     
-    var didChange = ObservableObjectPublisher()
     @Published var questions = QuestionsResponse(data: []){
         didSet {
             objectWillChange.send()

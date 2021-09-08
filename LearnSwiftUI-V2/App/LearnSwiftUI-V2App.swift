@@ -20,6 +20,7 @@ struct LearnSwiftUIV2App: App {
                 .environmentObject(TaskViewModel())
                 .environmentObject(NewsViewModel())
                 .environmentObject(ExamViewModel())
+                .environmentObject(BiometricAuthentication())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

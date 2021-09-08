@@ -25,6 +25,7 @@
 		84ACA52326E8765200A6FB34 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84ACA52126E8765200A6FB34 /* Model.xcdatamodeld */; };
 		84ACA52526E87C3200A6FB34 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACA52426E87C3200A6FB34 /* PersistenceController.swift */; };
 		84ACA52926E8856100A6FB34 /* LearnSwiftUI-V2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACA52826E8856100A6FB34 /* LearnSwiftUI-V2App.swift */; };
+		84ACA52C26E910E900A6FB34 /* BiometricAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACA52B26E910E900A6FB34 /* BiometricAuthenticationService.swift */; };
 		84C2679426DCCEE20067B1D1 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679326DCCEE20067B1D1 /* TaskView.swift */; };
 		84C2679626DCCEEF0067B1D1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679526DCCEEF0067B1D1 /* Note.swift */; };
 		84C2679926DCD26C0067B1D1 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C2679826DCD26C0067B1D1 /* TaskViewModel.swift */; };
@@ -74,6 +75,7 @@
 		84ACA52226E8765200A6FB34 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		84ACA52426E87C3200A6FB34 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		84ACA52826E8856100A6FB34 /* LearnSwiftUI-V2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearnSwiftUI-V2App.swift"; sourceTree = "<group>"; };
+		84ACA52B26E910E900A6FB34 /* BiometricAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationService.swift; sourceTree = "<group>"; };
 		84C2679326DCCEE20067B1D1 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		84C2679526DCCEEF0067B1D1 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		84C2679826DCD26C0067B1D1 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				84F0AB3C26E1F6ED00EDF958 /* KeychainServices.swift */,
 				843F68BF26E63F30009F06A1 /* NetworkMonitorService.swift */,
 				8401DF8F26E6EA5B006C694E /* NetworkMonitor.swift */,
+				84ACA52B26E910E900A6FB34 /* BiometricAuthenticationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				84A6EE9826D91EDF00EE8A3F /* AppDelegate.swift in Sources */,
 				84F0AB5126E26A4D00EDF958 /* Instagram.swift in Sources */,
 				84A6EE9A26D91EDF00EE8A3F /* SceneDelegate.swift in Sources */,
+				84ACA52C26E910E900A6FB34 /* BiometricAuthenticationService.swift in Sources */,
 				84F0AB4326E20C4200EDF958 /* NetworkManager.swift in Sources */,
 				845C9A9226E07527000E9277 /* CustomView.swift in Sources */,
 				84A6EEAF26D91F9700EE8A3F /* LoginView.swift in Sources */,
