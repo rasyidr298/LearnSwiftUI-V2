@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 
 //komponen indicator
@@ -23,15 +24,71 @@ struct Indicator : UIViewRepresentable {
 
 //loading
 struct LoadingAnim : View {
-    @State var message : String = ""
+    @Environment(\.colorScheme) var colorScheme
     var body : some View {
+        if colorScheme == .dark {
+            VStack{
+                Indicator()
+                Text("loading..")
+            }.padding()
+            .background(Color.black)
+            .cornerRadius(20)
+            .shadow(color: Color.secondary, radius: 10)
+        }else{
+            VStack{
+                Indicator()
+                Text("loading..")
+            }.padding()
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color: Color.secondary, radius: 10)
+            
+        }
+    }
+}
+
+//lootieView
+struct LootieView: UIViewRepresentable {
+    typealias UIViewType = UIView
+    var fileName : String
+    
+    func makeUIView(context: UIViewRepresentableContext<LootieView>) -> UIView {
+        let view = UIView(frame: .zero)
+        
+        let animationView = AnimationView()
+        let animation = Animation.named(fileName)
+        animationView.animation = animation
+        animationView.contentMode = .scaleAspectFit
+        animationView.play()
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([animationView.widthAnchor.constraint(equalTo: view.widthAnchor), animationView.heightAnchor.constraint(equalTo: view.heightAnchor)])
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LootieView>) {
+    }
+}
+
+//button reconnect
+struct ReconectView : View {
+    @State var message : String = ""
+    @State var action : () -> Void
+    
+    var body: some View{
         VStack{
-            Indicator()
-            Text(self.message)
-        }.padding()
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(color: Color.secondary, radius: 20)
+            LootieView(fileName: "noConnection")
+                .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Text(message)
+            Button {
+                action()
+            } label: {
+                Text("retry")
+            }
+        }
     }
 }
 
@@ -53,12 +110,12 @@ func alertWithOneButton(title : String, message : String) -> Alert{
     return Alert(title: Text(title), message: Text(message))
 }
 
-//custom NavBar
+//custom white NavBar
 func customNavBar(){
     let navBarAppearance = UINavigationBarAppearance()
     navBarAppearance.shadowImage = UIImage()
     navBarAppearance.shadowColor = .clear
-    navBarAppearance.backgroundColor = UIColor.white
+//    navBarAppearance.backgroundColor = UIColor.white
     UINavigationBar.appearance().standardAppearance = navBarAppearance
     UINavigationBar.appearance().compactAppearance = navBarAppearance
     UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
@@ -87,6 +144,8 @@ struct CustomShape : Shape {
 
 struct CustomView_Previews: PreviewProvider {
     static var previews: some View {
-        Indicator()
+        ReconectView(message: "tidak ada internet") {
+            
+        }
     }
 }

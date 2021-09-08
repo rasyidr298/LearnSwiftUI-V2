@@ -29,7 +29,7 @@ struct InstagramView: View {
                             Image(systemName: "plus.square")
                                 .resizable()
                                 .frame(width:22, height: 22, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color.secondary)
                         })
                         
                         Button(action: {print("favorite click")}, label: {
@@ -37,7 +37,7 @@ struct InstagramView: View {
                                 .resizable()
                                 .frame(width: 22, height: 22, alignment: .center)
                                 .padding()
-                                .foregroundColor(.black)
+                                .foregroundColor(Color.secondary)
                         })
                         
                         ZStack{
@@ -46,7 +46,7 @@ struct InstagramView: View {
                                     Image(systemName: "message.circle")
                                         .resizable()
                                         .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color.secondary)
                                 }
                             })
                             Text("\(instagramViewModel.messageCount)")
@@ -166,7 +166,7 @@ struct InstagramContentView : View {
                                     .resizable()
                                     .frame(width: 22, height: 22, alignment: .center)
                                     .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color.secondary)
                             }
                         })
                 Button(action: {print("comment click")}, label: {
@@ -174,21 +174,21 @@ struct InstagramContentView : View {
                         .resizable()
                         .frame(width: 22, height: 22, alignment: .center)
                         .padding(.init(top: 5, leading: 5, bottom: 0, trailing: 5))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.secondary)
                 })
                 Button(action: {print("send click : \(self.instagramViewModel.messageCount += 1) \(instagramViewModel.messageCount)")}, label: {
                     Image(systemName: "paperplane")
                         .resizable()
                         .padding(.init(top: 5, leading: 0, bottom: 0, trailing: 0))
                         .frame(width: 22, height: 22, alignment: .center)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.secondary)
                 })
                 Spacer()
                 Button(action: {print("bookmark click")}, label: {
                     Image(systemName: "bookmark")
                         .resizable()
                         .frame(width: 22, height: 22, alignment: .center)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.secondary)
                 })
             }
             .padding(.init(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -252,7 +252,7 @@ struct InstagramMessageView : View {
                     Image(systemName: "video")
                         .resizable()
                         .frame(width:28, height: 22, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.secondary)
                 })
                 
                 Button(action: {print("favorite click")}, label: {
@@ -260,7 +260,7 @@ struct InstagramMessageView : View {
                         .resizable()
                         .frame(width: 22, height: 22, alignment: .center)
                         .padding()
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.secondary)
                 })
                 
                 ZStack{
@@ -268,7 +268,7 @@ struct InstagramMessageView : View {
                         Image(systemName: "message.circle")
                             .resizable()
                             .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.secondary)
                     })
                     Text("\(instagramViewModel.messageCount)")
                         .foregroundColor(Color.white)

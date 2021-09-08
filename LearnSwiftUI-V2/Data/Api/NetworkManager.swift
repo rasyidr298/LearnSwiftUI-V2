@@ -38,7 +38,7 @@ class NetworkManager : NSObject{
             self.url = url
         }
         if !isJSONRequest{
-            encoding = URLEncoding.httpBody
+            encoding = URLEncoding.default
         }
         self.method = method
         print("Service: \(service?.rawValue ?? self.url ?? "") \n data: \(parameters)")
@@ -54,7 +54,8 @@ class NetworkManager : NSObject{
                         do {
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
                         } catch let error {
-                            print(String(data: res, encoding: .utf8) ?? "nothing received")
+                            print("data : \(res.count)")
+//                            print(String(data: res, encoding: .utf8) ?? "nothing received")
                             completion(.failure(error))
                         }
                     default:
@@ -69,9 +70,6 @@ class NetworkManager : NSObject{
     }
 }
 
-/**
- *check connectivity
-*/
 class Connectivity {
     class func isConnectedToInternet() ->Bool {
         return NetworkReachabilityManager()!.isReachable

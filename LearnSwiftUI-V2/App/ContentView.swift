@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         if authViewModel.isLoading{
-            return AnyView(LoadingAnim(message: "Loading.."))
+            return AnyView(LoadingAnim())
         }else{
             if (self.keyChainViewModel.isTokenBlank) {
                 return AnyView(LoginView().animation(.easeIn))

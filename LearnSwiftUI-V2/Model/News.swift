@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct Articles : Identifiable {
+struct Articles : Codable, Identifiable {
     var id = UUID()
-    var title, description, urlToImage : String
+    var title, description, urlToImage : String?
+    
+    enum CodingKeys : CodingKey {
+        case title, description, urlToImage
+    }
 }
 
-struct NewsResponse {
-    var articles : Articles
+struct NewsResponse : Codable {
+    var articles : [Articles]
 }

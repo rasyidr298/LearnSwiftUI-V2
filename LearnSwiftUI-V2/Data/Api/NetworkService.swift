@@ -10,7 +10,7 @@ import Foundation
 // MARK: services
 enum services :String{
     case loginAuth = "authenticate"
-    case listQuestions = "exam/question/"
+    case listQuestions = "exam/question"
 }
 
 // MARK: baseURL

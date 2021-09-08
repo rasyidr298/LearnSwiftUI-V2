@@ -11,26 +11,27 @@ struct HomeView: View {
     
     var body: some View{
         ZStack{
-            TabView{
+            TabView(){
                 NewsView()
                     .tabItem {
                         Image(systemName: "text.badge.plus")
-                        Text("Questions")
+                        Text("News")
                     }
-                NoteView()
+                
+                TaskView()
                     .tabItem {
                         Image(systemName: "tray.and.arrow.down.fill")
-                        Text("Beranda")
+                        Text("Local Data")
                     }
-                NoteView()
+                TaskView()
                     .tabItem {
                         Image(systemName: "paperplane.circle.fill")
-                        Text("Beranda")
+                        Text("Firebase")
                     }
                 SettingView()
                     .tabItem {
                         Image(systemName: "wrench.and.screwdriver.fill")
-                        Text("Beranda")
+                        Text("Setting")
                     }
             }.accentColor(.red)
         }
@@ -40,6 +41,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView().environmentObject(AuthViewModel())
+            .environmentObject(KeychainViewModel())
+            .environmentObject(TaskViewModel())
+            .environmentObject(NewsViewModel())
+            .environmentObject(ExamViewModel())
     }
 }

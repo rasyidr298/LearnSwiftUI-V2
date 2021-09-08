@@ -19,8 +19,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_swift" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-01-Emo">
                                 <rect key="frame" x="38" y="303" width="338" height="290"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="made by : rasyid r" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wte-Dc-P7y">
-                                <rect key="frame" x="138" y="842" width="138" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made by : Rasyid R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wte-Dc-P7y">
+                                <rect key="frame" x="134" y="613" width="146" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,14 +32,13 @@
                             <constraint firstItem="oGB-01-Emo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0Oy-Pn-9Q7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oGB-01-Emo" secondAttribute="trailing" constant="38" id="0fc-UU-wuv"/>
                             <constraint firstItem="oGB-01-Emo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="38" id="2Kl-A6-DJq"/>
-                            <constraint firstItem="wte-Dc-P7y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8Ns-Mx-jDa"/>
                             <constraint firstItem="oGB-01-Emo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="E1k-oc-ihE"/>
                             <constraint firstItem="oGB-01-Emo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Nxi-zn-VKh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oGB-01-Emo" secondAttribute="bottom" constant="269" id="S0b-yG-2Ua"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wte-Dc-P7y" secondAttribute="trailing" constant="138" id="SLx-oW-Fmz"/>
-                            <constraint firstItem="wte-Dc-P7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="eIw-dM-o3Z"/>
+                            <constraint firstItem="wte-Dc-P7y" firstAttribute="top" secondItem="oGB-01-Emo" secondAttribute="bottom" constant="20" id="gfw-rK-4F3"/>
                             <constraint firstItem="oGB-01-Emo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="259" id="lZ2-QE-2r6"/>
                             <constraint firstItem="oGB-01-Emo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="p9N-tK-srz"/>
+                            <constraint firstItem="wte-Dc-P7y" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="u0o-Vy-aqs"/>
                         </constraints>
                     </view>
                 </viewController>

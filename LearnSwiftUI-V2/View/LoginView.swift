@@ -20,9 +20,6 @@ struct LoginView: View {
     var body: some View {
         //Background View
         ZStack{
-            Color.white
-                .edgesIgnoringSafeArea(.all)
-            
             //1.  Welcome
             VStack{
                 if !isTapLogo {
@@ -30,7 +27,7 @@ struct LoginView: View {
                         HStack{
                             VStack(alignment:.leading){
                                 Text("Hi!").bold().font(.largeTitle).foregroundColor(.white)
-                                Text("Welcome Back").font(.title).foregroundColor(.white)
+                                Text("welcome").font(.title).foregroundColor(.white)
                             }
                         }
                         Spacer()
@@ -162,7 +159,11 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().environmentObject(AuthViewModel()).environmentObject(KeychainViewModel())
+        ForEach(["en","id"], id : \.self){
+            localidentifier in
+            LoginView().environmentObject(AuthViewModel()).environmentObject(KeychainViewModel())
+                .environment(\.locale, .init(identifier : localidentifier))
+        }
     }
 }
 

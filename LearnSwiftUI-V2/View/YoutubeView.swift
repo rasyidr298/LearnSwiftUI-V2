@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct YoutubeView: View {
+    init() {
+        customNavBar()
+    }
     var body: some View{
         NavigationView{
             YoutubeContentView()

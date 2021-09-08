@@ -26,6 +26,7 @@ class AuthViewModel : ObservableObject{
     func authLogin(login: String, password : String){
         if !Connectivity.isConnectedToInternet(){
             self.alertLogin = .noInternet
+            return
         }else{
             self.isLoading = true
             NetworkManager(data: ["login":login,"password":password], headers: [:], url: nil, service: .loginAuth, method: .post, isJSONRequest: false).executeQuery(){
@@ -34,7 +35,7 @@ class AuthViewModel : ObservableObject{
                 self.isLoading = false
                 switch result{
                 case .success(let response):
-                    print("authLogin succes :\(response)")
+                    print("succes login :\(response.meta.message)")
                     DispatchQueue.main.async {
                         self.isLogin = true
                         self.keyChainViewModel.updateStoredToken(response.data.access_token) 
@@ -42,7 +43,7 @@ class AuthViewModel : ObservableObject{
                     
                 case.failure(let error):
                     self.alertLogin = .wrongPasword
-                    print("authLogin error :\(error)")
+                    print("error login :\(error)")
                 }
             }
         }

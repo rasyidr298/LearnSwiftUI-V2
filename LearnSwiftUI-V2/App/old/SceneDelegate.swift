@@ -19,11 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         // Create the SwiftUI view that provides the window contents.
-        let authViewModel = AuthViewModel()
-        let keychainViewModel = KeychainViewModel()
-        let noteViewModel = NoteViewModel()
-        let newsViewModel = NewsViewModel()
-        
         let contenView = ContentView()
         
         // Use a UIHostingController as window root view controller.
@@ -31,10 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             window.rootViewController = UIHostingController(rootView: contenView
-                                                                .environmentObject(authViewModel)
-                                                                .environmentObject(keychainViewModel)
-                                                                .environmentObject(noteViewModel)
-                                                                .environmentObject(newsViewModel))
+                                                                .environmentObject(AuthViewModel())
+                                                                .environmentObject(KeychainViewModel())
+                                                                .environmentObject(TaskViewModel())
+                                                                .environmentObject(NewsViewModel())
+                                                                .environmentObject(ExamViewModel()))
             self.window = window
             window.makeKeyAndVisible()
         }
