@@ -69,10 +69,10 @@ class BiometricAuthentication: ObservableObject {
         } else {
             // 7
             if let errorString = error?.localizedDescription {
-                print("Error in biometric policy evaluation: \(errorString)")
+                print("Error in biometric policy evaluation:: \(errorString)")
             }
             
-            exit(0)
+            self.isLocked = false
             //        self.isLocked = true
         }
     }
