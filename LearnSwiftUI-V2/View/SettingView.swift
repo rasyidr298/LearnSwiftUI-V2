@@ -101,16 +101,6 @@ struct SettingViewContent : View {
                         Text("Questions")
                     }
                 }
-//                .navigationBarTitle("", displayMode: .inline)
-                
-                HStack(spacing: 20){
-                    Image(systemName: "paperplane.fill")
-                        .frame(width: 35, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                        .foregroundColor(Color.white)
-                    Text("Get Token FCM")
-                }
                 
                 Button(action: {
                     logout()

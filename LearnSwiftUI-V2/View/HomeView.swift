@@ -28,10 +28,10 @@ struct HomeView: View {
                             Image(systemName: "tray.and.arrow.down.fill")
                             Text("Local Data")
                         }
-                    TaskView()
+                    MapView()
                         .tabItem {
-                            Image(systemName: "paperplane.circle.fill")
-                            Text("Firebase")
+                            Image(systemName: "map.fill")
+                            Text("Map")
                         }
                     SettingView()
                         .tabItem {
